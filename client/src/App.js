@@ -16,7 +16,7 @@ class App extends React.Component {
           <Switch>
           <Route exact path = "/"  component = {Search}/>
           <Route exact path = "/saved"  component = {Saved}/>
-          <Route path = "*" component = {ErrorPage}/> 
+          <Route component = {ErrorPage}/> 
           </Switch>
         </>
       </Router>
