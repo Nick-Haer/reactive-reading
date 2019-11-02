@@ -1,3 +1,5 @@
 const Book = require("./models")
 
-module.exports = Book;
+module.exports = {
+    Book: Book
+} 

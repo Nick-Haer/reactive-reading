@@ -1,12 +1,10 @@
 const bookController = require("../../controllers/bookcontroller");
 
-const express = require("express")
-
-const router = express.Router
+const router = require("express").Router()
 
 
 router.route("/saved")
-.get(bookController.bookSearch)
+.get(bookController.findAllSaved)
 
 router.route("/save")
 .post(bookController.saveBook)

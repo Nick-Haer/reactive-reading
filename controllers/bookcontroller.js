@@ -1,5 +1,7 @@
 const db = require("../models")
 
+const axios = require("axios");
+
 
 module.exports = {
 
@@ -15,9 +17,7 @@ module.exports = {
                 for (let book of response.data.items) {
                     booksData.push(book.volumeInfo)
                 }
-            })
-            .then(() => {
-                console.log(booksIds)
+
                 res.status(200).json(booksData)
             })
             .catch(err => {
@@ -30,19 +30,21 @@ module.exports = {
     
 
     findAllSaved(req, res) {
-        db.Book.findAll({})
+        db.Book.find({})
             .then(result => res.status(200).json(result))
             .catch(error => res.status(404).json(error))
     },
 
     saveBook(req, res) {
+        console.log(db.Book)
+        console.log(req.body)
         db.Book.create(req.body)
         .then(createdBook => res.status(201).send(createdBook))
         .catch(err => res.status(400).json(err))
     },
 
     deleteSelected(req, res) {
-        db.Book.find({_id : req.params.id})
+        db.Book.findById({_id : req.params.id})
         .then(book => book.remove())
     }
 

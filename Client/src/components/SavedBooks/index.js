@@ -1,6 +1,6 @@
 import React from "react";
 
-import styles from "./books.module.css"
+import styles from "./savedBooks.module.css"
 
 
 
@@ -9,7 +9,7 @@ function Books(props) {
         <div className={styles.container}>
             <span>{props.title}</span>
             <a target="blank" href ={props.link}>Visit</a>
-            <button onClick={props.saveClick}>Save</button>
+            <button onClick={props.deleteClick}>Delete</button>
             <p>Written By: {props.author}</p>
             <div>
             <img className={styles.bookImage} src={props.image}></img>

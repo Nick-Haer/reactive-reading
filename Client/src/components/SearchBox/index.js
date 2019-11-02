@@ -9,8 +9,8 @@ function SearchBox(props) {
             <h1>Search for Books Here</h1>
 
             <h3>Enter Book Title:</h3>
-            <input className={styles.inputBox} placeholder={"The Bully Pulpit"} onChange={props.inputHandler} value={props.titleSearch}></input>
-            <button onClick={props.clickhandler}>Search</button>
+            <input className={styles.inputBox} placeholder={"The Bully Pulpit"} onChange={props.inputHandler} value={props.title}></input>
+            <button onClick={props.clickHandler}>Search</button>
         </div>
     );
 

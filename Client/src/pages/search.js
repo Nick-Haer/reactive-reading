@@ -12,34 +12,71 @@ import BooksList from "../components/BookList"
 
 class Search extends React.Component {
 
-state = {
-    searchedTitle: "",
-    books: []
-}
+    state = {
+        searchedTitle: "",
+        books: []
+    }
 
-handleInputChange = (event) => {
-    const {name, value} = event.target
-    this.setState({
-        searchedTitle: value
-    })
-}
+    handleInputChange = (event) => {
+        const { name, value } = event.target
+        this.setState({
+            searchedTitle: value
+        })
+    }
 
-handleBookSearchClick = (event) => {
-    event.preventDefault()
-    let title = event.target.value
-    Api.searchBooks(title)
-    .then(results => console.log(results))
-    .catch(err => console.error(err))
-}
+    handleBookSearchClick = (event) => {
+        event.preventDefault()
+        let title = this.state.searchedTitle
+        console.log(title)
+        Api.searchBooks(title)
+            .then(results => {
+                console.log(results.data)
+                this.setState({
+                    books: results.data
+                })
+            })
+            .catch(err => console.error(err))
+    }
 
-    render () {
+    handleBookSave = (event, index) => {
+        event.preventDefault()
+
+        const selectedBook = this.state.books.find((book, i) =>{
+            return index === i;
+        } )
+
+        const {title, imageLinks, description, previewLink } = selectedBook
+
+        const bookData = {
+            title,
+            authors: selectedBook.authors[0],
+            description,
+            image: imageLinks.thumbnail,
+            link: previewLink
+        }
+
+        Api.saveBook(bookData)
+        .then(savedBook => console.log(savedBook))
+        .catch(err => console.error(err))
+
+    }
+
+    render() {
 
         let books = null;
 
-        if (books !== null && books.length > 0) {
-            books = books.map(book => {
+        if (this.state.books.length > 0) {
+            books = this.state.books.map((book, index) => {
                 return (
-                    <Books></Books>
+                    <Books
+                        saveClick = {(event) => this.handleBookSave(event, index)}
+                        key={index}
+                        image={book.imageLinks.thumbnail}
+                        title={book.title}
+                        author={book.authors[0]}
+                        description={book.description}
+                        link={book.previewLink}
+                    ></Books>
                 );
             })
         }
@@ -49,17 +86,17 @@ handleBookSearchClick = (event) => {
 
         return (
             <>
-            <Jumbotron />
-            <SearchBox 
-            titleSearch = {this.state.searchedTitle}
-            inputHandler = {(event) => this.handleInputChange(event)}
-            clickHandler = {(event) => this.handleBookSearchClick(event)} />
+                <Jumbotron />
+                <SearchBox
+                    title={this.state.searchedTitle}
+                    inputHandler={(event) => this.handleInputChange(event)}
+                    clickHandler={(event) => this.handleBookSearchClick(event)} />
 
-            <BooksList>
 
-            {books}
 
-            </BooksList>
+                {books}
+
+
             </>
 
         )
