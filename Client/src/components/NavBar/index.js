@@ -1,4 +1,7 @@
 import React from "react";
+
+import styles from "./nav.module.css";
+
 import {
   BrowserRouter as Router,
   Switch,
@@ -9,10 +12,10 @@ import {
 
 function NavBar(props) {
     return (
-        <div>
-            <span>Reading is RadioReactive!</span>
-            <Link to="/">Search Books</Link>
-            <Link to="/saved">Saved Book</Link>
+        <div  className = {styles.container}>
+            <span className={styles.phrase}>Reading is RadioReactive!</span>
+            <Link className = {styles.navItem} to="/">Search Books</Link>
+            <Link className = {styles.navItem}  to="/saved">Saved Book</Link>
         </div>
     )
 }

@@ -1,0 +1,12 @@
+.container {
+    margin-top: 2%;
+    border: solid 5px black;
+    background-color: grey;
+}
+
+.inputBox {
+    width: 85%;
+    margin-left: 6%;
+    margin-bottom: 2%;
+    border: rgb(105, 59, 59) solid 2px;
+}

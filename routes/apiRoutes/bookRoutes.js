@@ -6,14 +6,17 @@ const router = express.Router
 
 
 router.route("/saved")
-.get(bookRoutes.bookSearch)
+.get(bookController.bookSearch)
+
+router.route("/save")
+.post(bookController.saveBook)
 
 
 router.route("/:title")
-.get(bookRoutes.bookSearch)
+.get(bookController.bookSearch)
 
 router.route("/:id")
-.delete(bookRoutes.deleteSelected)
+.delete(bookController.deleteSelected)
 
 
 module.exports = router

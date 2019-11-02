@@ -1,0 +1,9 @@
+.container {
+    border: black solid 2px;
+    background-color: rgb(105, 59, 59);
+    margin-top: 3%;
+}
+
+.resultsTitle {
+    color: rgb(214, 209, 209);
+}

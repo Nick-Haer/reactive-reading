@@ -25,12 +25,20 @@ module.exports = {
                 res.status(404).json(err)
             })
     },
+
+
     
 
     findAllSaved(req, res) {
         db.Book.findAll({})
             .then(result => res.status(200).json(result))
             .catch(error => res.status(404).json(error))
+    },
+
+    saveBook(req, res) {
+        db.Book.create(req.body)
+        .then(createdBook => res.status(201).send(createdBook))
+        .catch(err => res.status(400).json(err))
     },
 
     deleteSelected(req, res) {
