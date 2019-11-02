@@ -1,8 +1,10 @@
 .container {
     border: solid black 1px;
     padding: 2%;
+    box-sizing: border-box;
+    font-family: 'Crimson Text', serif;
 }
-
-/* .bookImage {
+/* 
+.bookImage {
     float: left;
 } */
