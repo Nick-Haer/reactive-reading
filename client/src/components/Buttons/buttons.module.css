@@ -1,0 +1,20 @@
+.visitButton {
+    position: absolute;
+    left: 85%;
+}
+
+.visitLink {
+    padding: 10px;
+}
+
+.saveButton {
+    padding: 10px;
+    position: absolute;
+    left: 88%;
+}
+
+.deleteButton {
+    padding: 10px;
+    position: absolute;
+    left: 88%;
+}

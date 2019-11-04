@@ -1,8 +1,22 @@
 .container {
     border: solid black 1px;
     padding: 2%;
+    box-sizing: border-box;
+    font-family: 'Crimson Text', serif;
 }
 
-/* .bookImage {
+.container::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.bookImage {
     float: left;
-} */
+    margin-right: 5px;
+}
+
+.title {
+    font-size: 1.5rem;
+    font-weight: bold;
+}

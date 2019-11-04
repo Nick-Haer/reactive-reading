@@ -4,7 +4,20 @@
     box-sizing: border-box;
     font-family: 'Crimson Text', serif;
 }
-/* 
+
+.container::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
 .bookImage {
     float: left;
-} */
+    margin-right: 5px;
+}
+
+.title {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+

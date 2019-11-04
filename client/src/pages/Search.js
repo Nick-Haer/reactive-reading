@@ -45,15 +45,27 @@ class Search extends React.Component {
             return index === i;
         } )
 
-        const {title, imageLinks, description, previewLink } = selectedBook
+        const {title, description, previewLink } = selectedBook
+        
+        const author = Object.keys(selectedBook).includes("authors") ? selectedBook.authors[0] : "No authors found!";
+
+        const bookImage = Object.keys(selectedBook).includes("imageLinks") ? selectedBook.imageLinks.thumbnail : "No image found";
+
+        const bookDescription = selectedBook.description || "No description found";
+
+
+        console.log(author)
+        console.log(bookImage)
 
         const bookData = {
             title,
-            authors: selectedBook.authors[0],
-            description,
-            image: imageLinks.thumbnail,
+            authors: author,
+            description: bookDescription,
+            image: bookImage,
             link: previewLink
         }
+
+        console.log(bookData)
 
         Api.saveBook(bookData)
         .then(savedBook => console.log(savedBook))
@@ -71,10 +83,10 @@ class Search extends React.Component {
                     <Books
                         saveClick = {(event) => this.handleBookSave(event, index)}
                         key={index}
-                        image={book.imageLinks.thumbnail}
+                        image={Object.keys(book).includes("imageLinks") ? book.imageLinks.thumbnail : null}
                         title={book.title}
-                        author={book.authors[0]}
-                        description={book.description}
+                        author={Object.keys(book).includes("authors") ? book.authors[0] : "No authors found!" }
+                        description={book.description || "No description found"}
                         link={book.previewLink}
                     ></Books>
                 );
