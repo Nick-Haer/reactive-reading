@@ -28,3 +28,20 @@
 .visitLink {
   cursor: pointer;
 }
+
+@media only screen and (max-width: 1500px) {
+  .deleteButton {
+    padding: 10px;
+    position: absolute;
+    left: 75%;
+  }
+  .visitButton {
+    position: absolute;
+    left: 90%;
+  }
+  .saveButton {
+    padding: 10px;
+    position: absolute;
+    left: 80%;
+  }
+}
