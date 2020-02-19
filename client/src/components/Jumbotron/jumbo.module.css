@@ -1,16 +1,16 @@
 .container {
-    text-align: center;
-    background-image: url("../../images/library.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    padding: 10%;
-    margin-top: 2%;
+  text-align: center;
+  background-image: url('../../images/library.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 10%;
+  margin-top: 2%;
 }
 
 .mainTitle {
-    color: rgb(214, 209, 209);;
+  color: rgb(245, 235, 235);
 }
 
 .secondaryTitle {
-    color: rgb(214, 209, 209);
+  color: rgb(243, 236, 236);
 }
